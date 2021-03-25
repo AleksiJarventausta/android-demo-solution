@@ -6,4 +6,6 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/H
 
 $ANDROID_HOME/platform-tools/adb wait-for-device shell 'while [[ -z $(getprop sys.boot_completed) ]]; do sleep 1; done;'
 ./node_modules/.bin/wdio 
+passed=$?
 $ANDROID_HOME/platform-tools/adb -s emulator-5554 emu kill
+return passed
